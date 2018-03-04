@@ -1,0 +1,21 @@
+---
+server:
+  port: 8080
+  contextPath: /piccashop
+---
+spring:
+  profiles: local, default
+---
+datasource:
+  url: jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1
+  username: SA
+  password:
+  driverClassName: org.h2.Driver
+  defaultSchema:
+  maxPoolSize: 10
+#  hibernate:
+#    hbm2ddl.method: create-drop
+#    show_sql: true
+#    format_sql: true
+#    dialect: org.hibernate.dialect.H2Dialect
+---
