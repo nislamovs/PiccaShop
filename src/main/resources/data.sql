@@ -87,5 +87,8 @@ INSERT INTO seafood (id,name,cost,image) VALUES(2,'Shrimp','3.51',FILE_READ('src
 INSERT INTO seafood (id,name,cost,image) VALUES(3,'Tuna','2.51',FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
 
 
--- order_details
+-- order_details table
+-- INSERT INTO order_details (id,name,cost,image) VALUES(3,'Tuna','2.51',FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
+
+
 -- orders

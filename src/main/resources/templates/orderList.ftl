@@ -91,6 +91,10 @@
     </div>
 </div>
 <div class="floatRight">
-    <button type="button" ng-click="" class="btn btn-success">PDF (download)</button>
-    <button type="button" ng-click="" class="btn btn-success">PDF (show)</button>
+    <div>
+        <button class="btn btn-success" value="Report" onclick="showReport();">Show report</button>
+        <button class="btn btn-success" value="Pdf attachment" onclick="showAttachment();">Show pdf attachment</button>
+        <button class="btn btn-success" value="Docx attachment" onclick="showDocxAttachment();">Show docx attachment</button>
+        <button class="btn btn-success" value="Xlsx attachment" onclick="showXlsxAttachment();">Show xlsx attachment</button>
+    </div>
 </div>

@@ -18,4 +18,8 @@ datasource:
 #    show_sql: true
 #    format_sql: true
 #    dialect: org.hibernate.dialect.H2Dialect
+
+#for reports use this DB setup:
+#jdbc:h2:tcp://localhost/mem:test
 ---
+report: "/reports/ingredients.jasper"

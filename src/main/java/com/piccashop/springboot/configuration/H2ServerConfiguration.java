@@ -1,26 +1,12 @@
 package com.piccashop.springboot.configuration;
 
 import org.h2.tools.Server;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.jdbc.datasource.init.DataSourceInitializer;
-import org.springframework.jdbc.datasource.init.DatabasePopulator;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
-import org.springframework.jdbc.datasource.init.ScriptUtils;
 
-import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
 import java.sql.SQLException;
-import java.util.Properties;
 
 @Configuration
 public class H2ServerConfiguration {
@@ -35,7 +21,7 @@ public class H2ServerConfiguration {
     private String h2WebPort;
 
     @Bean
-    @ConditionalOnExpression("${h2.tcp.enabled:false}")
+    @ConditionalOnExpression("${h2.tcp.enabled:true}")
     public Server h2TcpServer() throws SQLException {
         return Server.createTcpServer("-tcp", "-tcpAllowOthers", "-tcpPort", h2TcpPort).start();
     }

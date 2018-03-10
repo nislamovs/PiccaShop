@@ -5,6 +5,20 @@
         <title>${title}</title>
         <link href="css/bootstrap.css" rel="stylesheet"/>
         <link href="css/app.css" rel="stylesheet"/>
+        <script>
+            function showReport() {
+                window.location.replace("http://localhost:8080/piccashop/report");
+            }
+            function showAttachment() {
+                window.location.replace("http://localhost:8080/piccashop/attachment");
+            }
+            function showDocxAttachment() {
+                window.location.replace("http://localhost:8080/piccashop/docxattachment");
+            }
+            function showXlsxAttachment() {
+                window.location.replace("http://localhost:8080/piccashop/xlsxattachment");
+            }
+        </script>
     </head>
     <body>
 
