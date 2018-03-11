@@ -58,18 +58,18 @@ CREATE TABLE IF NOT EXISTS cheese(
 CREATE TABLE IF NOT EXISTS orders(
   id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   order_details_id BIGINT NOT NULL,
-  request_datetime TIMESTAMP NOT NULL,
-  delivery_datetime TIMESTAMP,
-  client VARCHAR(50) NOT NULL,
-  address VARCHAR(50) NOT NULL,
+  request_datetime DATETIME NOT NULL,
+  delivery_datetime DATETIME,
+  client VARCHAR(80) NOT NULL,
+  address VARCHAR(80) NOT NULL,
   phonenumber VARCHAR(20) NOT NULL,
   doorcode VARCHAR(20),
   client_comments VARCHAR(255),
   courier_comments VARCHAR(255),
-  payment_type VARCHAR(30) NOT NULL,
-  courier VARCHAR(50) NOT NULL,
-  call_operator VARCHAR(50) NOT NULL,
-  email VARCHAR(50) NOT NULL,
+  payment_type BIGINT NOT NULL,
+  courier VARCHAR(80) NOT NULL,
+  call_operator VARCHAR(80) NOT NULL,
+  email VARCHAR(80) NOT NULL,
   is_company BOOLEAN NOT NULL,
   total_cost decimal NOT NULL,
   delivery_cost decimal NOT NULL,
@@ -82,11 +82,16 @@ CREATE TABLE IF NOT EXISTS orders(
 CREATE TABLE IF NOT EXISTS order_details(
   id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   order_id BIGINT NOT NULL,
-  sauces VARCHAR(10),
-  meat_ingredients VARCHAR(10),
-  mushrooms VARCHAR(10),
-  fruits_and_vegetables VARCHAR(10),
-  seafood VARCHAR(10),
-  cheese VARCHAR(10),
+  sauces VARCHAR(20),
+  meat_ingredients VARCHAR(20),
+  mushrooms VARCHAR(20),
+  fruits_and_vegetables VARCHAR(20),
+  seafood VARCHAR(20),
+  cheese VARCHAR(20),
   picca_size VARCHAR(10)
+);
+
+CREATE TABLE IF NOT EXISTS payment_type(
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  payment_type VARCHAR(30) NOT NULL
 );
