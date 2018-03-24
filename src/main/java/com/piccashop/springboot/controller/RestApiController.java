@@ -1,23 +1,21 @@
 package com.piccashop.springboot.controller;
 
-import java.util.List;
-
+import com.piccashop.springboot.model.Products;
+import com.piccashop.springboot.model.User;
+import com.piccashop.springboot.service.ProductsService;
+import com.piccashop.springboot.service.UserService;
+import com.piccashop.springboot.util.CustomErrorType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.ObjectUtils;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.piccashop.springboot.model.User;
-import com.piccashop.springboot.service.UserService;
-import com.piccashop.springboot.util.CustomErrorType;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -27,6 +25,19 @@ public class RestApiController {
 
 	@Autowired
 	UserService userService; //Service which will do all data retrieval/manipulation work
+
+	@Autowired
+	ProductsService productsService; //Service which will do all data retrieval/manipulation work
+
+	@RequestMapping(value = "/test/", method = RequestMethod.GET)
+	public ResponseEntity<?> getImg() {
+		Products product = productsService.findById(7L);
+		if (ObjectUtils.isEmpty(product)) {
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
+			// You many decide to return HttpStatus.NOT_FOUND
+		}
+		return new ResponseEntity<Products>(product, HttpStatus.OK);
+	}
 
 	// -------------------Retrieve All Users---------------------------------------------
 

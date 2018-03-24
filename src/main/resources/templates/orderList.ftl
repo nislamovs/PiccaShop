@@ -70,6 +70,30 @@
                         <th>ID</th>
                         <th>NAME</th>
                         <th>AGE</th>
+                        <th>IMAGE</th>
+                        <th width="100"></th>
+                        <th width="100"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="u in ctrl.imgg()">
+                        <td>{{u.id}}</td>
+                        <td>{{u.name}}</td>
+                        <td>{{u.cost}}</td>
+                        <td><img id="profileImage" height="42" width="42" src="data:image/jpg;base64, {{u.image}}"></td>
+                        <td><button  ng-click="ctrl.editUser(u.id)" class="press-round press-red ">Edit</button></td>
+                        <td><button  ng-click="ctrl.removeUser(u.id)" class="press-round press-red ">Remove</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>AGE</th>
                         <th>SALARY</th>
                         <th width="100"></th>
                         <th width="100"></th>

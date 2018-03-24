@@ -25,6 +25,12 @@ app.config(['$stateProvider', '$urlRouterProvider',
                         var deferred = $q.defer();
                         UserService.loadAllUsers().then(deferred.resolve, deferred.resolve);
                         return deferred.promise;
+                    },
+                    prods: function ($q, UserService) {
+                        console.log('Load all prods');
+                        var deferred = $q.defer();
+                        UserService.getImg().then(deferred.resolve, deferred.resolve);
+                        return deferred.promise;
                     }
                 }
             });

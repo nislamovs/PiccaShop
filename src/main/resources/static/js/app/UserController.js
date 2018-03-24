@@ -6,6 +6,7 @@ angular.module('piccaApp').controller('UserController',
         var self = this;
         self.user = {};
         self.users=[];
+        self.prods = {};
 
         self.submit = submit;
         self.getAllUsers = getAllUsers;
@@ -14,6 +15,7 @@ angular.module('piccaApp').controller('UserController',
         self.removeUser = removeUser;
         self.editUser = editUser;
         self.reset = reset;
+        self.imgg = imgg;
 
         self.successMessage = '';
         self.errorMessage = '';
@@ -21,6 +23,20 @@ angular.module('piccaApp').controller('UserController',
 
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
+
+        function imgg() {
+            return UserService.imgg();
+            // console.log('Getting Img');
+            // return UserService.getImg().then(
+            //     function (response) {
+            //         console.log("Ti loh!");
+            //         self.prods = response.data;;
+            //     },
+            //     function (errResponse) {
+            //         console.error('Error while retrieving image , Error :' + errResponse.data);
+            //     }
+            // );
+        }
 
         function submit() {
             console.log('Submitting');

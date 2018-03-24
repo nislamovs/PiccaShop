@@ -85,6 +85,4 @@ public class User implements Serializable{
 		return "User [id=" + id + ", name=" + name + ", age=" + age
 				+ ", salary=" + salary + "]";
 	}
-
-
 }

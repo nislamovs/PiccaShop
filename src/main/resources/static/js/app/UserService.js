@@ -6,14 +6,38 @@ angular.module('piccaApp').factory('UserService',
 
             var factory = {
                 loadAllUsers: loadAllUsers,
+                imgg: imgg,
                 getAllUsers: getAllUsers,
                 getUser: getUser,
                 createUser: createUser,
                 updateUser: updateUser,
-                removeUser: removeUser
+                removeUser: removeUser,
+                getImg: getImg
             };
 
             return factory;
+
+            function getImg() {
+                console.log('Fetching img');
+                var deferred = $q.defer();
+                $http.get(urls.BASE+'/api/test/')
+                    .then(
+                        function (response) {
+                            console.log('Fetched img');
+                            $localStorage.prods = response;
+                            deferred.resolve(response.data);
+                        },
+                        function (errResponse) {
+                            console.error('Error while loading img');
+                            deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            }
+
+            function imgg() {
+                return $localStorage.prods;
+            }
 
             function loadAllUsers() {
                 console.log('Fetching all users');
