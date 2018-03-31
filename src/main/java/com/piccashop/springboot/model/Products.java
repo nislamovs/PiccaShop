@@ -1,5 +1,6 @@
 package com.piccashop.springboot.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="products")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Products implements Serializable {
 
     @Id
@@ -25,6 +27,7 @@ public class Products implements Serializable {
     private Double cost;
 
     @Column(name = "IMAGE", nullable = false)
+    @Lob
     private byte[] image;
 
     public Long getId() {

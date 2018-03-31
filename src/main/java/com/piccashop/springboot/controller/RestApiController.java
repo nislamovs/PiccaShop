@@ -30,7 +30,19 @@ public class RestApiController {
 	ProductsService productsService; //Service which will do all data retrieval/manipulation work
 
 	@RequestMapping(value = "/test/", method = RequestMethod.GET)
-	public ResponseEntity<?> getImg() {
+	public ResponseEntity<List<Products>> getImg() {
+		List<Products> products = productsService.findAll();
+		if (ObjectUtils.isEmpty(products)) {
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
+			// You many decide to return HttpStatus.NOT_FOUND
+		}
+		return new ResponseEntity<List<Products>>(products, HttpStatus.OK);
+	}
+
+
+
+	@RequestMapping(value = "/test2/", method = RequestMethod.GET)
+	public ResponseEntity<?> getImg2() {
 		Products product = productsService.findById(7L);
 		if (ObjectUtils.isEmpty(product)) {
 			return new ResponseEntity(HttpStatus.NO_CONTENT);

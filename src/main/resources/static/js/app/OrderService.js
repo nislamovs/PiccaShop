@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('piccaApp').factory('UserService',
+angular.module('piccaApp').factory('OrderService',
     ['$localStorage', '$http', '$q', 'urls',
         function ($localStorage, $http, $q, urls) {
 
@@ -12,10 +12,51 @@ angular.module('piccaApp').factory('UserService',
                 createUser: createUser,
                 updateUser: updateUser,
                 removeUser: removeUser,
-                getImg: getImg
+                getImg: getImg,
+                saveDoc: saveDoc,
+                findDoc: findDoc
+                // upload: upload
             };
 
             return factory;
+
+            function saveDoc(file) {
+                var deferred = $q.defer();
+                var formData = new FormData();
+                formData.append('image', file);
+                formData.append("Product",  JSON.stringify({id: '7', category: '777', name: 'product1', cost: '11.11'}));
+
+                $http.post(urls.DOC_URL, formData,{
+                    transformRequest : angular.identity,
+                    headers : {
+                        'Content-Type' : undefined
+                    }})
+                    .then(
+                        function (response) {
+                            deferred.resolve(response.data);
+                        },
+                        function (errResponse) {
+                            alert(errResponse.data.errorMessage);
+                            deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            }
+
+            function findDoc(docId) {
+                var deferred = $q.defer();
+                $http.get(urls.DOC_URL + '/'+docId)
+                    .then(
+                        function (response) {
+                            deferred.resolve(response.data);
+                        },
+                        function (errResponse) {
+                            alert(errResponse.data.errorMessage);
+                            deferred.reject(errResponse);
+                        }
+                    );
+                return deferred.promise;
+            }
 
             function getImg() {
                 console.log('Fetching img');
@@ -79,9 +120,17 @@ angular.module('piccaApp').factory('UserService',
             }
 
             function createUser(user) {
+                var fd = new FormData();
+                fd.append('file', angular.toJSON($scope.file));
+                fd.append('data', angular.toJSON(self.user));
+                console.dir(fd);
+
                 console.log('Creating User');
                 var deferred = $q.defer();
-                $http.post(urls.USER_SERVICE_API, user)
+                $http.post(urls.USER_SERVICE_API, fd, {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                })
                     .then(
                         function (response) {
                             loadAllUsers();
@@ -128,6 +177,42 @@ angular.module('piccaApp').factory('UserService',
                     );
                 return deferred.promise;
             }
-
+            //
+            // function saveDoc(file) {
+            //     var deferred = $q.defer();
+            //     var formData = new FormData();
+            //     formData.append('file', file);
+            //
+            //     $http.post(urls.DOC_URL+'upload', formData,{
+            //         transformRequest : angular.identity,
+            //         headers : {
+            //             'Content-Type' : undefined
+            //         }})
+            //         .then(
+            //             function (response) {
+            //                 deferred.resolve(response.data);
+            //             },
+            //             function (errResponse) {
+            //                 alert(errResponse.data.errorMessage);
+            //                 deferred.reject(errResponse);
+            //             }
+            //         );
+            //     return deferred.promise;
+            // }
+            //
+            // function findDoc(docId) {
+            //     var deferred = $q.defer();
+            //     $http.get(urls.DOC_URL + '/'+docId)
+            //         .then(
+            //             function (response) {
+            //                 deferred.resolve(response.data);
+            //             },
+            //             function (errResponse) {
+            //                 alert(errResponse.data.errorMessage);
+            //                 deferred.reject(errResponse);
+            //             }
+            //         );
+            //     return deferred.promise;
+            // }
         }
     ]);

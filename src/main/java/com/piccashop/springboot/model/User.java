@@ -23,6 +23,10 @@ public class User implements Serializable{
 	@Column(name="SALARY", nullable=false)
 	private double salary;
 
+	@Column(name = "IMAGE", nullable = false)
+	@Lob
+	private byte[] image;
+
 	public Long getId() {
 		return id;
 	}
@@ -53,6 +57,14 @@ public class User implements Serializable{
 
 	public void setSalary(double salary) {
 		this.salary = salary;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 
 	@Override

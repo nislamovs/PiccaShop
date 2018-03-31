@@ -1477,7 +1477,7 @@ header .price-float img{
 }
 /* ## Product Info - END */
 
-/* ## Cart Products */
+/* ## Cart Product */
 .cart-steps-wrapper{
 	padding: 30px 0;
 	background-color: #f7f7f7;
@@ -1555,7 +1555,7 @@ header .price-float img{
 .table-total td{
 	border-top: 3px solid #eeeeee;
 }
-/* ## Cart Products - END */
+/* ## Cart Product - END */
 
 /* ## Order Complete */
 .order-complete h3{

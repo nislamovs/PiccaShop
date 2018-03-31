@@ -23,13 +23,17 @@
     <body>
 
         <div ui-view></div>
+        <script src="js/lib/jquery-2.2.1.min.js"></script>
         <script src="js/lib/angular.min.js" ></script>
         <script src="js/lib/angular-ui-router.min.js" ></script>
         <script src="js/lib/localforage.min.js" ></script>
         <script src="js/lib/ngStorage.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
         <script src="js/app/app.js"></script>
-        <script src="js/app/UserService.js"></script>
-        <script src="js/app/UserController.js"></script>
+        <script src="js/app/OrderController.js"></script>
+        <script src="js/app/OrderService.js"></script>
+        <script src="js/app/ProductsController.js"></script>
+        <script src="js/app/ProductsService.js"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&subset=cyrillic" rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=PT+Sans:regular,bold" rel="stylesheet" type="text/css" />

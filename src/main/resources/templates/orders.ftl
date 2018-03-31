@@ -4,8 +4,9 @@
             <div class="row">
                 <div class="collapse navbar-collapse" id="main-nav">
                     <ul class="nav navbar-nav">
-                        <li><a href="/piccashop">Create order</a></li>
-                        <li><a href="/piccashop/#/orders">Order list</a></li>
+                        <li><a href="/piccashop/#/">Create order</a></li>
+                        <li class="active"><a href="/piccashop/#/orders">Orders</a></li>
+                        <li><a href="/piccashop/#/products">Products</a></li>
                     </ul>
                 </div>
             </div>
@@ -26,7 +27,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-lable" for="uname">Name</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.user.name" id="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
+                                <input type="text" ng-model="ctrl.user.name" value="bdfghjfgh" id="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/>
                             </div>
                         </div>
                     </div>
@@ -35,7 +36,7 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-lable" for="age">Age</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.user.age" id="age" class="form-control input-sm" placeholder="Enter your Age." required ng-pattern="ctrl.onlyIntegers"/>
+                                <input type="text" ng-model="ctrl.user.age" value="890" id="age" class="form-control input-sm" placeholder="Enter your Age." required ng-pattern="ctrl.onlyIntegers"/>
                             </div>
                         </div>
                     </div>
@@ -44,8 +45,25 @@
                         <div class="form-group col-md-12">
                             <label class="col-md-2 control-lable" for="salary">Salary</label>
                             <div class="col-md-7">
-                                <input type="text" ng-model="ctrl.user.salary" id="salary" class="form-control input-sm" placeholder="Enter your Salary." required ng-pattern="ctrl.onlyNumbers"/>
+                                <input type="text" ng-model="ctrl.user.salary" value="456" id="salary" class="form-control input-sm" placeholder="Enter your Salary." required ng-pattern="ctrl.onlyNumbers"/>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <h2>Upload Document</h2>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td><input type="file" class="custom-file-input" file-model="file"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button ng-click="upload()">Upload</button></td>
+                                    </tr>
+                                </table>
+                            </div>
+
                         </div>
                     </div>
 
@@ -59,6 +77,7 @@
             </div>
         </div>
     </div>
+
     <div class="panel panel-default">
         <!-- Default panel contents -->
         <div class="panel-heading"><span class="lead">List of Users </span></div>
@@ -80,7 +99,7 @@
                         <td>{{u.id}}</td>
                         <td>{{u.name}}</td>
                         <td>{{u.cost}}</td>
-                        <td><img id="profileImage" height="42" width="42" src="data:image/jpg;base64, {{u.image}}"></td>
+                        <td><img id="profileImage" height="42" width="42" ng-src="data:image/jpg;base64, {{u.image}}"></td>
                         <td><button  ng-click="ctrl.editUser(u.id)" class="press-round press-red ">Edit</button></td>
                         <td><button  ng-click="ctrl.removeUser(u.id)" class="press-round press-red ">Remove</button></td>
                     </tr>

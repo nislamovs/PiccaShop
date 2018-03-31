@@ -2,7 +2,8 @@ CREATE TABLE IF NOT EXISTS app_user(
   id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   age VARCHAR(255) NOT NULL,
-  salary decimal NOT NULL
+  salary decimal NOT NULL,
+  image IMAGE
 );
 
 CREATE TABLE IF NOT EXISTS menu(

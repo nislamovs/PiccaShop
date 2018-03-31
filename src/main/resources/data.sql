@@ -1,8 +1,8 @@
 -- APP_USER table
-INSERT INTO app_user(id, name, age, salary) VALUES (1, 'vasja', '100', '24.77');
-INSERT INTO app_user(id, name, age, salary) VALUES (2, 'kolja', '200', '774.77');
-INSERT INTO app_user(id, name, age, salary) VALUES (3, 'sasha', '300', '3324.77');
-INSERT INTO app_user(id, name, age, salary) VALUES (4, 'petja', '400', '8524.77');
+INSERT INTO app_user(id, name, age, salary, image) VALUES (1, 'vasja', '100', '24.77', FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
+INSERT INTO app_user(id, name, age, salary, image) VALUES (2, 'kolja', '200', '774.77', FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
+INSERT INTO app_user(id, name, age, salary, image) VALUES (3, 'sasha', '300', '3324.77', FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
+INSERT INTO app_user(id, name, age, salary, image) VALUES (4, 'petja', '400', '8524.77', FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
 
 -- menu table
 INSERT INTO menu (id,category,image1,image2,href)
