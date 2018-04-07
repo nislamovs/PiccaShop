@@ -6,7 +6,26 @@ angular.module('piccaApp').controller('ProductsController',
         $scope.startsWith = function (actual, expected) {
             var lowerStr = (actual + "").toLowerCase();
             return lowerStr.indexOf(expected.toLowerCase()) === 0;
-        }
+        };
+
+        $scope.zoom = function(index) {
+            var elem = "view" + index;
+            var imageId = document.getElementById(elem);
+            if (imageId.style.width != "240px") {
+                imageId.style.width = "240px";
+                imageId.style.height = "240px";
+            } else {
+                imageId.style.width = "42px";
+                imageId.style.height = "42px";
+            }
+
+        };
+        //
+        // $scope.clickedImage = '';
+        //
+        // $scope.openImage = function (image) {
+        //     $scope.clickedImage = image;
+        // };
 
         var self = this;
         self.product = {};

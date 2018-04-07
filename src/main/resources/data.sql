@@ -5,36 +5,36 @@ INSERT INTO app_user(id, name, age, salary, image) VALUES (3, 'sasha', '300', '3
 INSERT INTO app_user(id, name, age, salary, image) VALUES (4, 'petja', '400', '8524.77', FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
 
 -- menu table
-INSERT INTO menu (id,category,image1,image2,href)
+INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(1,'Sauce',
        FILE_READ('src/main/resources/static/images/menu/sauce_menu_1.png'),
        FILE_READ('src/main/resources/static/images/menu/sauce_menu_2.png'),
-       '#a249cdab-844a-4a09-a5c4-a5a700bbb810');
-INSERT INTO menu (id,category,image1,image2,href)
+       '#a249cdab-844a-4a09-a5c4-a5a700bbb810','');
+INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(2,'Meat ingredients',
        FILE_READ('src/main/resources/static/images/menu/meat_ingredients_menu_1.png'),
        FILE_READ('src/main/resources/static/images/menu/meat_ingredients_menu_2.png'),
-       '#deb8b250-7249-4744-8016-a5c900bf5981');
-INSERT INTO menu (id,category,image1,image2,href)
+       '#deb8b250-7249-4744-8016-a5c900bf5981','');
+INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(3,'Mushrooms',
        FILE_READ('src/main/resources/static/images/menu/mushrooms_menu_1.png'),
        FILE_READ('src/main/resources/static/images/menu/mushrooms_menu_2.png'),
-       '#f37516e1-ddc2-4659-afb8-a5a700bbc497');
-INSERT INTO menu (id,category,image1,image2,href)
+       '#f37516e1-ddc2-4659-afb8-a5a700bbc497','');
+INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(4,'Fruits and vegetables',
        FILE_READ('src/main/resources/static/images/menu/fruits_and_vegetables_menu_1.png'),
        FILE_READ('src/main/resources/static/images/menu/fruits_and_vegetables_menu_2.png'),
-       '#42022b1e-2dda-4e6d-b144-a5a700bbcb46');
-INSERT INTO menu (id,category,image1,image2,href)
+       '#42022b1e-2dda-4e6d-b144-a5a700bbcb46','');
+INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(5,'Seafood',
        FILE_READ('src/main/resources/static/images/menu/seafood_menu_1.png'),
        FILE_READ('src/main/resources/static/images/menu/seafood_menu_2.png'),
-       '#deff7a7a-cdb3-499a-b92e-a5e500869b5c');
-INSERT INTO menu (id,category,image1,image2,href)
+       '#deff7a7a-cdb3-499a-b92e-a5e500869b5c','');
+INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(6,'Cheese',
        FILE_READ('src/main/resources/static/images/menu/cheese_menu_1.png'),
        FILE_READ('src/main/resources/static/images/menu/cheese_menu_2.png'),
-       '#21ae9ac6-3ba6-4271-9811-a5e500865c02');
+       '#21ae9ac6-3ba6-4271-9811-a5e500865c02','');
 
 -- products table (sauces)
 INSERT INTO products (id,category,name,cost,image) VALUES(1,1,'Cocktail','1.5',FILE_READ('src/main/resources/static/images/sauce/cocktail.png'));

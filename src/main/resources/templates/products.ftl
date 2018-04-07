@@ -47,8 +47,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div>
-                            <img ng-src="images/nophoto.png" id="img" style="position:absolute; height: 100; width: 100;" height="242" width="242" >
+                        <div class="col-sm-4">
+                            <a data-toggle="modal" data-target="#imgModalWindow">
+                                <img id="img" style="position:absolute; height: 100; width: 100;" height="242" width="242" class="img-circle img-responsive img-center" src="images/nophoto.png" alt="">
+                            </a>
                         </div>
                     </div>
 
@@ -117,13 +119,23 @@
                         <td>{{p.id}}</td>
                         <td>{{p.name}}</td>
                         <td>{{p.cost}}</td>
-                        <td><img id="profileImage" height="42" width="42" ng-src="data:image/jpg;base64, {{p.image}}"></td>
+                        <td><img id="view{{$index}}" ng-click="zoom($index)" height="42" width="42" ng-src="data:image/jpg;base64, {{p.image}}"></td>
                         <td></td>
                         <td><button  ng-click="ctrl.editProduct(u.id)" class="press-round press-red ">Edit</button></td>
                         <td><button  ng-click="ctrl.removeProduct(u.id)" class="press-round press-red ">Remove</button></td>
                     </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="imgModalWindow" class="modal fade col-sm-12" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img id="imgModal" ng-src="images/nophoto.png" height="100%" width="100%" class="img-responsive">
             </div>
         </div>
     </div>

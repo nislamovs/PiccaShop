@@ -57,6 +57,7 @@ app.directive('fileModel', [ '$parse', function($parse) {
 
             reader.onload = function (e) {
                 angular.element('#img').attr('src', e.target.result);
+                angular.element('#imgModal').attr('src', e.target.result);
                 scope.$apply();
             };
 
