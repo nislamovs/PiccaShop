@@ -1,0 +1,51 @@
+Tables (FE) filtering                                                                                       DONE
+Tables (FE) sorting                                                                                         DONE
+Tables (FE) partial data display (10/20/50 records), pagination,                                            DONE
+Total items display                                                                                         DONE
+Make correct font color for sorting                                                                         DONE
+Time spent on request for processing and its display                                                        DONE
+Move page size selection on top
+Create buttons delete,
+ deletes all,
+  delete selected for products
+
+Asynchronous loading (products)                                                                         NOT NEEDED
+Picca constructor data loading via DB + ngRepeat
+Implement createOrder controller, service; make routes
+Implement product editing
+Implement order editing
+Implement order confirmation
+Create drop down menu for jasper reports on FE (products page)                                              DONE
+Picca size switching                                                                                        DONE
+"Picca delivered" button
+Add field to DB - company name                                                                              DONE
+Site visiting statistics script (via google tags)
+Jenkins job + random site visiting script
+Embedded tomcat usage
+Generics usage
+Make API for orders
+Make API for products                                                                                       DONE
+Add logging
+Make additional endpoint for products for pagination                                                        DONE
+Update all links on FE for BE
+Add spinner
+
+
+Make orders; make to show all orders, with drop down list with order details
+Make normal CSS buttons
+Move angular directives,controllers, filters, services to separate folder
+
+Jasper report generation remake taking into account new table structure
+Jasper report for all products (use ingredients as param)
+Jasper report for order
+Jasper report for some statistics
+Make Jasper report compilation
+Make Jasper report sql integration
+
+Make launch instructions (README.MD)
+Make launch scripts (copy from spring initializr)
+Make curl scripts for api testing
+
+Unit tests
+API Integration tests
+
