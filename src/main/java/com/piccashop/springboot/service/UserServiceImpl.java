@@ -1,14 +1,12 @@
 package com.piccashop.springboot.service;
 
-import java.util.List;
-
 import com.piccashop.springboot.model.User;
 import com.piccashop.springboot.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import java.util.List;
 
 @Service("userService")
 @Transactional

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('piccaApp').controller('ProductsController',
-    ['ProductsService', '$scope', '$rootScope', '$http', function( ProductsService, $scope, $rootScope, $http) {
+    ['evTableParams', 'ProductsService', '$scope', '$rootScope', '$http', function(evTableParams, ProductsService, $scope, $rootScope, $http) {
 
         $scope.startsWith = function (actual, expected) {
             var lowerStr = (actual + "").toLowerCase();
@@ -51,6 +51,20 @@ angular.module('piccaApp').controller('ProductsController',
 
         self.onlyIntegers = /^\d+$/;
         self.onlyNumbers = /^\d+([,.]\d+)?$/;
+
+        self.tableData = new evTableParams({
+            serverPaging : true,
+            ajaxUrl      : '/piccashop/api/product',
+
+            pageSize 	    : 5,  	                // [Optional] Defaults to 10
+            pageSizeOptions : [5,10,15,20,25,50],   // [Optional] Defaults to [10,20,50]
+            pageNumber	    : 1,   	                // [Optional] Defaults to 1 : If you want to start on a different page
+            orderBy         : 'id',                 // [Optional] Sort on page start
+            orderDirection  : 'asc'                 // [Optional] Sort direction on page start
+        });
+
+        self.reqTime = 0;
+        self.total = 0;
 
 
         function showImg() {
@@ -212,7 +226,7 @@ angular.module('piccaApp').controller('ProductsController',
         $scope.save = function () {
             $http({
                 method: 'POST',
-                url: "http://localhost:8080/piccashop/doc/upload",
+                url: "http://localhost:8080/piccashop/api/product/",
                 headers: { 'Content-Type': undefined },
 
                 transformRequest: function (data) {

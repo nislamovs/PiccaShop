@@ -19,6 +19,18 @@
                 window.location.replace("http://localhost:8080/piccashop/xlsxattachment");
             }
         </script>
+
+        <style type="text/css">
+            table.ev-table { width:100%; }
+            table tr th { padding:15px 40px; background: #808844; color: #111111;}
+            table tr td { padding: 10px 100px; }
+            [ev-sort] { cursor:pointer; }
+            ul.ev-paging { display:table; margin:0 auto;}
+            ul.ev-paging { overflow:hidden; }
+            ul.ev-paging li { list-style-type: none; float:left; padding:15px; margin:2px color:#888; cursor:pointer;}
+            ul.ev-paging li:hover { background:#888;}
+            li.ev-current-page { background:#5279a4; color:#fff; }
+        </style>
     </head>
     <body>
 
@@ -29,7 +41,11 @@
         <script src="js/lib/localforage.min.js" ></script>
         <script src="js/lib/ngStorage.min.js"></script>
         <script src="js/lib/bootstrap.min.js"></script>
+
+        <script src="js/app/ev-table.directive.js"></script>
         <script src="js/app/app.js"></script>
+        <script src="js/app/CreateOrderController.js"></script>
+        <script src="js/app/CreateOrderService.js"></script>
         <script src="js/app/OrderController.js"></script>
         <script src="js/app/OrderService.js"></script>
         <script src="js/app/ProductsController.js"></script>

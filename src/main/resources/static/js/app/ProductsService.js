@@ -12,7 +12,7 @@ angular.module('piccaApp').factory('ProductsService',
                 createProduct: createProduct,
                 updateProduct: updateProduct,
                 removeProduct: removeProduct,
-                getImg: getImg,
+                // getImg: getImg,
                 saveDoc: saveDoc,
                 findDoc: findDoc,
                 showImg: showImg
@@ -68,19 +68,17 @@ angular.module('piccaApp').factory('ProductsService',
                 return deferred.promise;
             }
 
-            function getImg() {
-
-                console.log('Fetching img');
+            function loadAllProducts() {
+                console.log('Fetching all products');
                 var deferred = $q.defer();
-                $http.get(urls.BASE+'/api/test/')
+                $http.get(urls.BASE+'/api/product/')
                     .then(
                         function (response) {
-                            console.log('Fetched img');
                             $localStorage.products = response.data;
                             deferred.resolve(response.data);
                         },
                         function (errResponse) {
-                            console.error('Error while loading img');
+                            console.error('Error while fetching products');
                             deferred.reject(errResponse);
                         }
                     );
@@ -91,23 +89,23 @@ angular.module('piccaApp').factory('ProductsService',
                 return $localStorage.products;
             }
 
-            function loadAllProducts() {
-                console.log('Fetching all products');
-                var deferred = $q.defer();
-                $http.get(urls.USER_SERVICE_API)
-                    .then(
-                        function (response) {
-                            console.log('Fetched successfully all products');
-                            $localStorage.products = response.data;
-                            deferred.resolve(response);
-                        },
-                        function (errResponse) {
-                            console.error('Error while loading products');
-                            deferred.reject(errResponse);
-                        }
-                    );
-                return deferred.promise;
-            }
+            // function loadAllProducts() {
+            //     console.log('Fetching all products');
+            //     var deferred = $q.defer();
+            //     $http.get(urls.USER_SERVICE_API)
+            //         .then(
+            //             function (response) {
+            //                 console.log('Fetched successfully all products');
+            //                 $localStorage.products = response.data;
+            //                 deferred.resolve(response);
+            //             },
+            //             function (errResponse) {
+            //                 console.error('Error while loading products');
+            //                 deferred.reject(errResponse);
+            //             }
+            //         );
+            //     return deferred.promise;
+            // }
 
             function getAllProducts(){
                 return $localStorage.products;

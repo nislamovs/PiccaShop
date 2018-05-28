@@ -8,15 +8,19 @@
                         <li><a href="/piccashop/#/orders">Orders</a></li>
                         <li class="active"><a href="/piccashop/#/products">Products</a></li>
                     </ul>
+                    <div class="dropdown show floatRight">
+                        <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Jasper reports
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                            <a class="btn" onclick="showReport();">Report</a>
+                            <a class="btn" onclick="showAttachment();">Pdf attachment</a>
+                            <a class="btn" onclick="showDocxAttachment();">Docx attachment</a>
+                            <a class="btn" onclick="showXlsxAttachment();">Xlsx attachment</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="floatRight">
-            <div>
-                <button class="btn" value="Report" onclick="showReport();">Show report</button>
-                <button class="btn" value="Pdf attachment" onclick="showAttachment();">Show pdf attachment</button>
-                <button class="btn" value="Docx attachment" onclick="showDocxAttachment();">Show docx attachment</button>
-                <button class="btn" value="Xlsx attachment" onclick="showXlsxAttachment();">Show xlsx attachment</button>
             </div>
         </div>
     </nav>
@@ -94,32 +98,44 @@
     </div>
     <div class="panel panel-default">
         <!-- Default panel contents -->
-        <div class="panel-heading"><span class="lead">List of products </span><br>
-            <input ng-model="search.id" type="text" id="searchId" placeholder="Id" ng-pattern="ctrl.onlyIntegers"/>
-            <input ng-model="search.name" type="text" id="searchName" placeholder="Name" />
-            <input ng-model="search.cost" type="text" id="searchCost" placeholder="Cost" ng-pattern="ctrl.onlyIntegers"/>
+        <div class="panel-heading">
+            <span class="lead">List of products </span><br>
         </div>
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover" ev-table="ctrl.tableData">
                     <thead>
                     <tr>
-                        <th width="10%">ID</th>
-                        <th width="10%">NAME</th>
-                        <th width="10%">COST</th>
+                        <th width="10%"><input ng-model="search.id" type="text" id="searchId" placeholder="Id" ng-pattern="ctrl.onlyIntegers" /> </th>
+                        <th width="15%"><input ng-model="search.name" type="text" id="searchName" placeholder="Name" /> </th>
+                        <th width="0%"></th>
+                        <th width="10%"> <input ng-model="search.cost" type="text" id="searchCost" placeholder="Cost" ng-pattern="ctrl.onlyIntegers" /> </th>
+                    </tr>
+                    <tr>
+                        <th ev-sort="id" width="10%">ID</th>
+                        <th ev-sort="name" width="15%">NAME</th>
+                        <th width="0%">COST</th>
+                        <th ev-sort="cost" width="10%">COST</th>
                         <th width="10%">IMAGE</th>
-                        <th width="50%"></th>
-                        <th width="5%"></th>
-                        <th width="5%"></th>
+                        <th width="5%">TIME : {{ requestTime }} ms;</th>
+                        <th width="5%">TOTAL : {{ productCount }}</th>
+                        <th width="40%"></th>
+                        <th width="5%" ></th>
+                        <th width="5%" ></th>
+                        <#--<th width="5%" ><select ng-model="ctrl.tableData.pageSize" ng-change="" ng-options="num as num for num in ctrl.tableData.pageSizeOptions"></select></th>-->
                     </tr>
                     </thead>
                     <tbody>
                     <#--<tr ng-repeat="p in ctrl.imgg() | filter:{id:search.id, name:search.name, cost:search.cost} :startsWith">-->
-                    <tr ng-repeat="p in ctrl.imgg() | filter:search:startsWith">
-                        <td>{{p.id}}</td>
-                        <td>{{p.name}}</td>
-                        <td>{{p.cost}}</td>
-                        <td><img id="view{{$index}}" ng-click="zoom($index)" height="42" width="42" ng-src="data:image/jpg;base64, {{p.image}}"></td>
+                    <#--<tr ng-repeat="p in ctrl.imgg() | filter:search:startsWith">-->
+                    <tr ng-repeat="item in collection | filter:search:startsWith">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.cost}}</td>
+                        <td>{{item.cost}}</td>
+                        <td><img id="view{{$index}}" ng-click="zoom($index)" height="42" width="42" ng-src="data:image/jpg;base64, {{item.image}}"></td>
+                        <td></td>
+                        <td></td>
                         <td></td>
                         <td><button  ng-click="ctrl.editProduct(u.id)" class="press-round press-red ">Edit</button></td>
                         <td><button  ng-click="ctrl.removeProduct(u.id)" class="press-round press-red ">Remove</button></td>

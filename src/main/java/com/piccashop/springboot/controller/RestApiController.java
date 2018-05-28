@@ -1,8 +1,8 @@
 package com.piccashop.springboot.controller;
 
-import com.piccashop.springboot.model.Products;
+import com.piccashop.springboot.model.Product;
 import com.piccashop.springboot.model.User;
-import com.piccashop.springboot.service.ProductsService;
+import com.piccashop.springboot.service.ProductService;
 import com.piccashop.springboot.service.UserService;
 import com.piccashop.springboot.util.CustomErrorType;
 import org.slf4j.Logger;
@@ -27,28 +27,26 @@ public class RestApiController {
 	UserService userService; //Service which will do all data retrieval/manipulation work
 
 	@Autowired
-	ProductsService productsService; //Service which will do all data retrieval/manipulation work
+	ProductService productService; //Service which will do all data retrieval/manipulation work
 
-	@RequestMapping(value = "/test/", method = RequestMethod.GET)
-	public ResponseEntity<List<Products>> getImg() {
-		List<Products> products = productsService.findAll();
-		if (ObjectUtils.isEmpty(products)) {
-			return new ResponseEntity(HttpStatus.NO_CONTENT);
-			// You many decide to return HttpStatus.NOT_FOUND
-		}
-		return new ResponseEntity<List<Products>>(products, HttpStatus.OK);
-	}
+//	@RequestMapping(value = "/test/", method = RequestMethod.GET)
+//	public ResponseEntity<List<Product>> getImg() {
+//		List<Product> products = productService.getAllProducts();
+//		if (ObjectUtils.isEmpty(products)) {
+//			return new ResponseEntity(HttpStatus.NO_CONTENT);
+//		}
+//		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
+//	}
 
 
 
 	@RequestMapping(value = "/test2/", method = RequestMethod.GET)
 	public ResponseEntity<?> getImg2() {
-		Products product = productsService.findById(7L);
+		Product product = productService.getProductById(7L);
 		if (ObjectUtils.isEmpty(product)) {
 			return new ResponseEntity(HttpStatus.NO_CONTENT);
-			// You many decide to return HttpStatus.NOT_FOUND
 		}
-		return new ResponseEntity<Products>(product, HttpStatus.OK);
+		return new ResponseEntity<Product>(product, HttpStatus.OK);
 	}
 
 	// -------------------Retrieve All Users---------------------------------------------

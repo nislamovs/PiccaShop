@@ -66,16 +66,6 @@ angular.module('piccaApp').controller('OrderController',
 
         function imgg() {
             return OrderService.imgg();
-            // console.log('Getting Img');
-            // return OrderService.getImg().then(
-            //     function (response) {
-            //         console.log("Ti loh!");
-            //         self.prods = response.data;;
-            //     },
-            //     function (errResponse) {
-            //         console.error('Error while retrieving image , Error :' + errResponse.data);
-            //     }
-            // );
         }
 
         function submit() {

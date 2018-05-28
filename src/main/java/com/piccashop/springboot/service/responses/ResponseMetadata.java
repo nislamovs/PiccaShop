@@ -1,19 +1,27 @@
 package com.piccashop.springboot.service.responses;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ResponseMetadata {
 
-    private int status;
+    private HttpStatus status;
     private String message;
     private Object data;
 
-    public int getStatus() {
+    ResponseMetadata() {}
+
+    public ResponseMetadata(String message, HttpStatus status) {
+        this.message = message;
+        this.status = status;
+    }
+
+    public HttpStatus getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(HttpStatus status) {
         this.status = status;
     }
 

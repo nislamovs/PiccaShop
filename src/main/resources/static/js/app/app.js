@@ -1,4 +1,4 @@
-var app = angular.module('piccaApp',['ui.router','ngStorage']);
+var app = angular.module('piccaApp',['ui.router','ngStorage','evTable']);
 
 app.constant('urls', {
     BASE: 'http://localhost:8080/piccashop',
@@ -12,22 +12,18 @@ app.config(['$stateProvider', '$urlRouterProvider',
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'partials/createOrder'
+                templateUrl: 'partials/createOrder',
+                controller: 'CreateOrderController',
+                controllerAs: 'ctrl'
+                // resolve: {
+                //     products: function ($q, CreateOrderService) {
+                //         console.log('Load all products');
+                //         var deferred = $q.defer();
+                //         CreateOrderService.loadAllProducts().then(deferred.resolve, deferred.resolve);
+                //         return deferred.promise;
+                //     }
+                // }
 
-            })
-            .state('products', {
-                url: '/products',
-                templateUrl: 'partials/products',
-                controller:'ProductsController',
-                controllerAs:'ctrl',
-                resolve: {
-                    products: function ($q, ProductsService) {
-                        console.log('Load all products');
-                        var deferred = $q.defer();
-                        ProductsService.getImg().then(deferred.resolve, deferred.resolve);
-                        return deferred.promise;
-                    }
-                }
             })
             .state('orders', {
                 url: '/orders',
@@ -41,8 +37,24 @@ app.config(['$stateProvider', '$urlRouterProvider',
                         OrderService.loadAllUsers().then(deferred.resolve, deferred.resolve);
                         return deferred.promise;
                     }
-                    }
-                });
+                }
+            })
+            .state('products', {
+                url: '/products',
+                templateUrl: 'partials/products',
+                controller:'ProductsController',
+                controllerAs:'ctrl'
+                //Looks like not needed anymore
+                // resolve: {
+                //     products: function ($q, ProductsService) {
+                //         console.log('Load all products');
+                //         var deferred = $q.defer();
+                //         ProductsService.loadAllProducts().then(deferred.resolve, deferred.resolve);
+                //         return deferred.promise;
+                //     }
+                // }
+            });
+
         $urlRouterProvider.otherwise('/');
     }
 ]);

@@ -81,6 +81,7 @@ CREATE TABLE IF NOT EXISTS orders(
   call_operator VARCHAR(80) NOT NULL,
   email VARCHAR(80) NOT NULL,
   is_company BOOLEAN NOT NULL,
+  company_name VARCHAR(30),
   total_cost decimal NOT NULL,
   delivery_cost decimal NOT NULL,
   tax_percent int NOT NULL,
