@@ -9,7 +9,8 @@ Create buttons delete,
  deletes all,
   delete selected for products
 
-Asynchronous loading (products)                                                                         NOT NEEDED
+Asynchronous loading (products) / maybe lazy loading                                                        NOT NEEDED / check
+
 Picca constructor data loading via DB + ngRepeat
 Implement createOrder controller, service; make routes
 Implement product editing
@@ -21,7 +22,7 @@ Picca size switching                                                            
 Add field to DB - company name                                                                              DONE
 Site visiting statistics script (via google tags)
 Jenkins job + random site visiting script
-Embedded tomcat usage
+Embedded tomcat usage                                                                                       DONE
 Generics usage
 Make API for orders
 Make API for products                                                                                       DONE
@@ -45,7 +46,14 @@ Make Jasper report sql integration
 Make launch instructions (README.MD)
 Make launch scripts (copy from spring initializr)
 Make curl scripts for api testing
+Add Swagger
 
 Unit tests
 API Integration tests
+
+------------------------------------------------------------------
+Smart grid
+https://www.js-tutorials.com/javascript-tutorial/best-free-angularjs-grid-table-plugin-examples/
+
+
 

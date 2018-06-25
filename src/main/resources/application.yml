@@ -2,6 +2,17 @@
 server:
   port: 8080
   contextPath: /piccashop
+  ssl:
+    enabled: true
+    key-store: demo_com_2018.jks
+    key-alias: demo_com_2018
+    key-store-password: 31067e22a7a8a6850be89d215fcdaab5
+    ciphers: TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+    enabled-protocols: TLSv1, TLSv1.1,TLSv1.2
+    protocol: TLS
+    client-auth: want
+    tomcat:
+      max-threads: 30
 ---
 spring:
   profiles: local, default
