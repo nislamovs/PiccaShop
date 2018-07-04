@@ -38,8 +38,6 @@ public class RestApiController {
 //		return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
 //	}
 
-
-
 	@RequestMapping(value = "/test2/", method = RequestMethod.GET)
 	public ResponseEntity<?> getImg2() {
 		Product product = productService.getProductById(7L);

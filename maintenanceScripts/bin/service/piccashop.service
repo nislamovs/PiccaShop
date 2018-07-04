@@ -1,0 +1,13 @@
+[Unit]
+Description = Piccashop Service
+After network.target = piccashop.service
+
+[Service]
+Type = forking
+ExecStart = /usr/local/bin/piccashop.sh start
+ExecStop = /usr/local/bin/piccashop.sh stop
+ExecReload = /usr/local/bin/piccashop.sh restart
+ExecStatus = /usr/local/bin/piccashop.sh status
+
+[Install]
+WantedBy=multi-user.target

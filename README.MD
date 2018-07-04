@@ -10,6 +10,7 @@ Small project - Piccashop, order creation display and printout.
 - Angular
 - H2 DB Population with data from files
 - Freemaker
+- Embedded tomcat and scripts for installation as a Linux service
 
 **Instructions**
 
