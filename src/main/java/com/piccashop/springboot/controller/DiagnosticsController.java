@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URL;
+import java.net.URLClassLoader;
+
 
 @RestController
 @RequestMapping(value = "/api")
@@ -17,7 +20,16 @@ public class DiagnosticsController {
 
     @RequestMapping(name="/health/", method = RequestMethod.GET)
     public ResponseEntity<?> health() {
-        return new ResponseEntity<String>("Piccashop works fine!", HttpStatus.OK);
+
+        ClassLoader cl = ClassLoader.getSystemClassLoader();
+
+        URL[] urls = ((URLClassLoader)cl).getURLs();
+        String response = "";
+        for(URL url: urls){
+            response += url.getFile();
+        }
+
+        return new ResponseEntity<String>(response, HttpStatus.OK);
     }
 
 }

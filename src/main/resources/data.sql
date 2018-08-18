@@ -1,90 +1,90 @@
 -- APP_USER table
-INSERT INTO app_user(id, name, age, salary, image) VALUES (1, 'vasja', '100', '24.77', FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
-INSERT INTO app_user(id, name, age, salary, image) VALUES (2, 'kolja', '200', '774.77', FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
-INSERT INTO app_user(id, name, age, salary, image) VALUES (3, 'sasha', '300', '3324.77', FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
-INSERT INTO app_user(id, name, age, salary, image) VALUES (4, 'petja', '400', '8524.77', FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
+INSERT INTO app_user(id, name, age, salary, image) VALUES (1, 'vasja', '100', '24.77', FILE_READ('classpath:static/images/seafood/tuna.png'));
+INSERT INTO app_user(id, name, age, salary, image) VALUES (2, 'kolja', '200', '774.77', FILE_READ('classpath:static/images/seafood/tuna.png'));
+INSERT INTO app_user(id, name, age, salary, image) VALUES (3, 'sasha', '300', '3324.77', FILE_READ('classpath:static/images/seafood/tuna.png'));
+INSERT INTO app_user(id, name, age, salary, image) VALUES (4, 'petja', '400', '8524.77', FILE_READ('classpath:static/images/seafood/tuna.png'));
 
 -- menu table
 INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(1,'Sauce',
-       FILE_READ('src/main/resources/static/images/menu/sauce_menu_1.png'),
-       FILE_READ('src/main/resources/static/images/menu/sauce_menu_2.png'),
+       FILE_READ('classpath:static/images/menu/sauce_menu_1.png'),
+       FILE_READ('classpath:static/images/menu/sauce_menu_2.png'),
        '#a249cdab-844a-4a09-a5c4-a5a700bbb810','');
 INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(2,'Meat ingredients',
-       FILE_READ('src/main/resources/static/images/menu/meat_ingredients_menu_1.png'),
-       FILE_READ('src/main/resources/static/images/menu/meat_ingredients_menu_2.png'),
+       FILE_READ('classpath:static/images/menu/meat_ingredients_menu_1.png'),
+       FILE_READ('classpath:static/images/menu/meat_ingredients_menu_2.png'),
        '#deb8b250-7249-4744-8016-a5c900bf5981','');
 INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(3,'Mushrooms',
-       FILE_READ('src/main/resources/static/images/menu/mushrooms_menu_1.png'),
-       FILE_READ('src/main/resources/static/images/menu/mushrooms_menu_2.png'),
+       FILE_READ('classpath:static/images/menu/mushrooms_menu_1.png'),
+       FILE_READ('classpath:static/images/menu/mushrooms_menu_2.png'),
        '#f37516e1-ddc2-4659-afb8-a5a700bbc497','');
 INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(4,'Fruits and vegetables',
-       FILE_READ('src/main/resources/static/images/menu/fruits_and_vegetables_menu_1.png'),
-       FILE_READ('src/main/resources/static/images/menu/fruits_and_vegetables_menu_2.png'),
+       FILE_READ('classpath:static/images/menu/fruits_and_vegetables_menu_1.png'),
+       FILE_READ('classpath:static/images/menu/fruits_and_vegetables_menu_2.png'),
        '#42022b1e-2dda-4e6d-b144-a5a700bbcb46','');
 INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(5,'Seafood',
-       FILE_READ('src/main/resources/static/images/menu/seafood_menu_1.png'),
-       FILE_READ('src/main/resources/static/images/menu/seafood_menu_2.png'),
+       FILE_READ('classpath:static/images/menu/seafood_menu_1.png'),
+       FILE_READ('classpath:static/images/menu/seafood_menu_2.png'),
        '#deff7a7a-cdb3-499a-b92e-a5e500869b5c','');
 INSERT INTO menu (id,category,image1,image2,identifier,classes)
 VALUES(6,'Cheese',
-       FILE_READ('src/main/resources/static/images/menu/cheese_menu_1.png'),
-       FILE_READ('src/main/resources/static/images/menu/cheese_menu_2.png'),
+       FILE_READ('classpath:static/images/menu/cheese_menu_1.png'),
+       FILE_READ('classpath:static/images/menu/cheese_menu_2.png'),
        '#21ae9ac6-3ba6-4271-9811-a5e500865c02','');
 
 -- products table (sauces)
-INSERT INTO products (id,category,name,cost,image) VALUES(1,1,'Cocktail','1.5',FILE_READ('src/main/resources/static/images/sauce/cocktail.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(2,1,'Creamy','1.25',FILE_READ('src/main/resources/static/images/sauce/creamy.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(3,1,'French','1.15',FILE_READ('src/main/resources/static/images/sauce/french.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(4,1,'Mustard','1.45',FILE_READ('src/main/resources/static/images/sauce/mustard.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(5,1,'Ricotta','1.8',FILE_READ('src/main/resources/static/images/sauce/ricotta.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(6,1,'Tomato','2.5',FILE_READ('src/main/resources/static/images/sauce/tomato.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(1,1,'Cocktail','1.5',FILE_READ('classpath:static/images/sauce/cocktail.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(2,1,'Creamy','1.25',FILE_READ('classpath:static/images/sauce/creamy.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(3,1,'French','1.15',FILE_READ('classpath:static/images/sauce/french.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(4,1,'Mustard','1.45',FILE_READ('classpath:static/images/sauce/mustard.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(5,1,'Ricotta','1.8',FILE_READ('classpath:static/images/sauce/ricotta.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(6,1,'Tomato','2.5',FILE_READ('classpath:static/images/sauce/tomato.png'));
 
 -- products table (cheese)
-INSERT INTO products (id,category,name,cost,image) VALUES(7,6,'Dana blue','1.5',FILE_READ('src/main/resources/static/images/cheese/dana_blue.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(8,6,'Mozzarella','1.25',FILE_READ('src/main/resources/static/images/cheese/mozzarella.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(9,6,'Mozzarella foundation','1.15',FILE_READ('src/main/resources/static/images/cheese/mozzarella_foundation.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(10,6,'Parmaise','1.45',FILE_READ('src/main/resources/static/images/cheese/parmaise.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(7,6,'Dana blue','1.5',FILE_READ('classpath:static/images/cheese/dana_blue.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(8,6,'Mozzarella','1.25',FILE_READ('classpath:static/images/cheese/mozzarella.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(9,6,'Mozzarella foundation','1.15',FILE_READ('classpath:static/images/cheese/mozzarella_foundation.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(10,6,'Parmaise','1.45',FILE_READ('classpath:static/images/cheese/parmaise.png'));
 
 -- products table (fruits_and_vegetables)
-INSERT INTO products (id,category,name,cost,image) VALUES(11,4,'Bell pepper','1.5',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/bell_pepper.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(12,4,'Black olives','1.1',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/black_olives.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(13,4,'Broccoli','1.2',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/broccoli.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(14,4,'Capers','1.3',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/capers.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(15,4,'Caramelized onions','1.3',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/caramelized_onions.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(16,4,'Cherry tomatoes','1.1',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/cherry_tomatoes.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(17,4,'Jalapeno pepper','1.7',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/jalapeno_pepper.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(18,4,'Leek','1.1',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/leek.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(19,4,'Olives','1.2',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/olives.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(20,4,'Onion','1.9',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/onion.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(21,4,'Pickled cucumbers','1.2',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/pickled_cucumbers.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(22,4,'Pineapple','1.8',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/pineapple.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(23,4,'Red onion','1.9',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/red_onion.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(24,4,'Salad mix','1.2',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/salad_mix.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(25,4,'Tomatoes','1.8',FILE_READ('src/main/resources/static/images/fruits_and_vegetables/tomatoes.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(11,4,'Bell pepper','1.5',FILE_READ('classpath:static/images/fruits_and_vegetables/bell_pepper.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(12,4,'Black olives','1.1',FILE_READ('classpath:static/images/fruits_and_vegetables/black_olives.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(13,4,'Broccoli','1.2',FILE_READ('classpath:static/images/fruits_and_vegetables/broccoli.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(14,4,'Capers','1.3',FILE_READ('classpath:static/images/fruits_and_vegetables/capers.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(15,4,'Caramelized onions','1.3',FILE_READ('classpath:static/images/fruits_and_vegetables/caramelized_onions.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(16,4,'Cherry tomatoes','1.1',FILE_READ('classpath:static/images/fruits_and_vegetables/cherry_tomatoes.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(17,4,'Jalapeno pepper','1.7',FILE_READ('classpath:static/images/fruits_and_vegetables/jalapeno_pepper.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(18,4,'Leek','1.1',FILE_READ('classpath:static/images/fruits_and_vegetables/leek.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(19,4,'Olives','1.2',FILE_READ('classpath:static/images/fruits_and_vegetables/olives.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(20,4,'Onion','1.9',FILE_READ('classpath:static/images/fruits_and_vegetables/onion.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(21,4,'Pickled cucumbers','1.2',FILE_READ('classpath:static/images/fruits_and_vegetables/pickled_cucumbers.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(22,4,'Pineapple','1.8',FILE_READ('classpath:static/images/fruits_and_vegetables/pineapple.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(23,4,'Red onion','1.9',FILE_READ('classpath:static/images/fruits_and_vegetables/red_onion.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(24,4,'Salad mix','1.2',FILE_READ('classpath:static/images/fruits_and_vegetables/salad_mix.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(25,4,'Tomatoes','1.8',FILE_READ('classpath:static/images/fruits_and_vegetables/tomatoes.png'));
 
 -- products table (meat_ingredients)
-INSERT INTO products (id,category,name,cost,image) VALUES(26,2,'Bacon','1.51',FILE_READ('src/main/resources/static/images/meat_ingredients/bacon.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(27,2,'Beef cooked smoked','1.15',FILE_READ('src/main/resources/static/images/meat_ingredients/beef_cooked_smoked.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(28,2,'Chicken fillet','1.25',FILE_READ('src/main/resources/static/images/meat_ingredients/chicken_fillet.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(29,2,'Fillet of beef','1.35',FILE_READ('src/main/resources/static/images/meat_ingredients/fillet_of_beef.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(30,2,'Ham','1.45',FILE_READ('src/main/resources/static/images/meat_ingredients/ham.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(31,2,'Hunting sausages','1.55',FILE_READ('src/main/resources/static/images/meat_ingredients/hunting_sausages.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(32,2,'Italian sausages','1.65',FILE_READ('src/main/resources/static/images/meat_ingredients/italian_sausages.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(33,2,'Pepperoni','1.75',FILE_READ('src/main/resources/static/images/meat_ingredients/pepperoni.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(34,2,'Pork boiled smoked','1.85',FILE_READ('src/main/resources/static/images/meat_ingredients/pork_boiled_smoked.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(26,2,'Bacon','1.51',FILE_READ('classpath:static/images/meat_ingredients/bacon.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(27,2,'Beef cooked smoked','1.15',FILE_READ('classpath:static/images/meat_ingredients/beef_cooked_smoked.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(28,2,'Chicken fillet','1.25',FILE_READ('classpath:static/images/meat_ingredients/chicken_fillet.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(29,2,'Fillet of beef','1.35',FILE_READ('classpath:static/images/meat_ingredients/fillet_of_beef.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(30,2,'Ham','1.45',FILE_READ('classpath:static/images/meat_ingredients/ham.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(31,2,'Hunting sausages','1.55',FILE_READ('classpath:static/images/meat_ingredients/hunting_sausages.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(32,2,'Italian sausages','1.65',FILE_READ('classpath:static/images/meat_ingredients/italian_sausages.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(33,2,'Pepperoni','1.75',FILE_READ('classpath:static/images/meat_ingredients/pepperoni.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(34,2,'Pork boiled smoked','1.85',FILE_READ('classpath:static/images/meat_ingredients/pork_boiled_smoked.png'));
 
 -- products table (mushrooms)
-INSERT INTO products (id,category,name,cost,image) VALUES(35,3,'Mushroom mix','1.51',FILE_READ('src/main/resources/static/images/mushrooms/mushroom_mix.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(35,3,'Mushroom mix','1.51',FILE_READ('classpath:static/images/mushrooms/mushroom_mix.png'));
 
 -- products table (seafood)
-INSERT INTO products (id,category,name,cost,image) VALUES(36,5,'Salmon slightly salted','1.51',FILE_READ('src/main/resources/static/images/seafood/salmon_slightly_salted.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(37,5,'Shrimp','3.51',FILE_READ('src/main/resources/static/images/seafood/shrimp.png'));
-INSERT INTO products (id,category,name,cost,image) VALUES(38,5,'Tuna','2.51',FILE_READ('src/main/resources/static/images/seafood/tuna.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(36,5,'Salmon slightly salted','1.51',FILE_READ('classpath:static/images/seafood/salmon_slightly_salted.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(37,5,'Shrimp','3.51',FILE_READ('classpath:static/images/seafood/shrimp.png'));
+INSERT INTO products (id,category,name,cost,image) VALUES(38,5,'Tuna','2.51',FILE_READ('classpath:static/images/seafood/tuna.png'));
 
 -- payment_type table
 INSERT INTO payment_type (id,payment_type) VALUES(1,'Creditcard');

@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.piccashop.springboot</groupId>
-	<artifactId>Piccashop</artifactId>
+	<artifactId>piccashop</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
@@ -16,8 +16,11 @@
 	</parent>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<start-class>com.piccashop.springboot.PiccaShop</start-class>
+		<docker.image.prefix>c70f09de30c3e07e635b642c164b23</docker.image.prefix>
 		<java.version>1.8</java.version>
-		<h2.version>1.4.187</h2.version>
+		<h2.version>1.4.192</h2.version>	<!--Do not change-->
 	</properties>
 
 	<dependencies>
@@ -76,13 +79,62 @@
 			<artifactId>spring-boot-autoconfigure</artifactId>
 		</dependency>
 
-	</dependencies>
+    </dependencies>
+
 	<build>
+		<finalName>piccashop</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.2.6</version>
+				<configuration>
+					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+					<dockerDirectory>src/main/resources/docker</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+						<resource>
+							<targetPath>/dependency/BOOT-INF/classes/static</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>*.*</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>package</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>${project.artifactId}</artifactId>
+									<version>${project.version}</version>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
+
 </project>

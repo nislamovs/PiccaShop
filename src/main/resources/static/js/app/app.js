@@ -1,9 +1,9 @@
 var app = angular.module('piccaApp',['ui.router','ngStorage','evTable']);
 
 app.constant('urls', {
-    BASE: 'http://localhost:8080/piccashop',
-    USER_SERVICE_API : 'http://localhost:8080/piccashop/api/user/',
-    DOC_URL: 'http://localhost:8080/piccashop/doc/upload'
+    BASE: 'https://localhost:8080/piccashop',
+    USER_SERVICE_API : 'https://localhost:8080/piccashop/api/user/',
+    DOC_URL: 'https://localhost:8080/piccashop/doc/upload'
 });
 
 app.config(['$stateProvider', '$urlRouterProvider',
@@ -85,7 +85,7 @@ app.directive('fileModel', [ '$parse', function($parse) {
 } ]);
 
 app.run(function($rootScope, $http) {
-    $http.get("http://localhost:8080/piccashop/").success(
+    $http.get("https://localhost:8080/piccashop/").success(
         function(response) {
             $rootScope.docList = response;
         });

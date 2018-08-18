@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-
 <html lang="en" ng-app="piccaApp">
     <head>
         <title>${title}</title>
+
         <link href="css/bootstrap.css" rel="stylesheet"/>
         <link href="css/app.css" rel="stylesheet"/>
         <script>
             function showReport() {
-                window.location.replace("http://localhost:8080/piccashop/report");
+                window.location.replace("https://localhost:8080/piccashop/report");
             }
             function showAttachment() {
-                window.location.replace("http://localhost:8080/piccashop/attachment");
+                window.location.replace("https://localhost:8080/piccashop/attachment");
             }
             function showDocxAttachment() {
-                window.location.replace("http://localhost:8080/piccashop/docxattachment");
+                window.location.replace("https://localhost:8080/piccashop/docxattachment");
             }
             function showXlsxAttachment() {
-                window.location.replace("http://localhost:8080/piccashop/xlsxattachment");
+                window.location.replace("https://localhost:8080/piccashop/xlsxattachment");
             }
         </script>
 
@@ -35,6 +35,7 @@
     <body>
 
         <div ui-view></div>
+
         <script src="js/lib/jquery-2.2.1.min.js"></script>
         <script src="js/lib/angular.min.js" ></script>
         <script src="js/lib/angular-ui-router.min.js" ></script>

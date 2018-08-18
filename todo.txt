@@ -30,7 +30,7 @@ Add logging
 Make additional endpoint for products for pagination                                                        DONE
 Update all links on FE for BE
 Add spinner
-
+Exception mapping
 
 Make orders; make to show all orders, with drop down list with order details
 Make normal CSS buttons
@@ -51,9 +51,23 @@ Add Swagger
 Unit tests
 API Integration tests
 
+Use docker                                                                                                       OK
+Use docker compose
+Create docker setup scripts                                                                                      OK
+Create Docker image deployment script to another host
+Create AWS deployment script
+
+create annotation for virtual fields
+
+investigate compressed data transaction for images (to increase performance)
+
+integrate ELK into docker compose script
+
 ------------------------------------------------------------------
 Smart grid
 https://www.js-tutorials.com/javascript-tutorial/best-free-angularjs-grid-table-plugin-examples/
 
 
+Bugs:
 
+cannot load images to H2 in case of using embedded tomcat                                                       resolved

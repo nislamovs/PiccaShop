@@ -53,7 +53,7 @@ angular.module('piccaApp').controller('OrderController',
                 .then(
                     function (response) {
                         alert("file uploaded successfully.");
-                        $http.get("http://localhost:8080/piccaapp/doc/upload").success(
+                        $http.get("https://localhost:8080/piccaapp/doc/upload").success(
                             function(response) {
                                 $rootScope.docList = response;
                             });
@@ -170,7 +170,7 @@ angular.module('piccaApp').controller('OrderController',
         $scope.save = function () {
             $http({
                 method: 'POST',
-                url: "http://localhost:8080/piccashop/doc/upload",
+                url: "https://localhost:8080/piccashop/doc/upload",
                 headers: { 'Content-Type': undefined },
 
                 transformRequest: function (data) {
