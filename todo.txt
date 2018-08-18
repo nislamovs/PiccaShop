@@ -71,3 +71,4 @@ https://www.js-tutorials.com/javascript-tutorial/best-free-angularjs-grid-table-
 Bugs:
 
 cannot load images to H2 in case of using embedded tomcat                                                       resolved
+cannot map to resources inside docker container                                                                 resolved
