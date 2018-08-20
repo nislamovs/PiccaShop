@@ -47,4 +47,7 @@ spring:
 
 ---
 report: "/reports/ingredients.jasper"
+
 ---
+email.support: "<nizami.islamovs@gmail.com>"
+

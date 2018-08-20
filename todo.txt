@@ -54,8 +54,10 @@ API Integration tests
 Use docker                                                                                                       OK
 Use docker compose
 Create docker setup scripts                                                                                      OK
-Create Docker image deployment script to another host
+Create Docker image deployment script to another host                                                           NOT NEEDED
 Create AWS deployment script
+Docker add possibility to connect ot container via ssh (22 port)
+
 
 create annotation for virtual fields
 
@@ -72,3 +74,8 @@ Bugs:
 
 cannot load images to H2 in case of using embedded tomcat                                                       resolved
 cannot map to resources inside docker container                                                                 resolved
+
+
+#commit msg
+    code cleanup
+    added exception handling controller
