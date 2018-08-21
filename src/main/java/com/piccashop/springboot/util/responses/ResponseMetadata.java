@@ -1,4 +1,4 @@
-package com.piccashop.springboot.service.responses;
+package com.piccashop.springboot.util.responses;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

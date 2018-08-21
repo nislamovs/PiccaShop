@@ -1,8 +1,7 @@
 package com.piccashop.springboot.controller;
 
 import com.piccashop.springboot.util.CustomErrorType;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -16,19 +15,18 @@ import javax.ws.rs.BadRequestException;
 
 import static java.time.LocalDateTime.now;
 
+@Slf4j
 @ControllerAdvice
 public class ExceptionHandlingController {
 
     @Autowired
     Environment environment;
 
-    private static final Logger LOG = LoggerFactory.getLogger(ExceptionHandlingController.class);
-
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     @ExceptionHandler({ValidationException.class, BadRequestException.class})
     @ResponseBody
     public CustomErrorType handleValidationException(final Exception ex) {
-        LOG.info("Bad requests " + ex.getMessage());
+        log.info("Bad requests " + ex.getMessage());
         return new CustomErrorType(ex.getMessage());
     }
 
@@ -36,7 +34,7 @@ public class ExceptionHandlingController {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public CustomErrorType handleGenericException(final Exception ex) {
-        LOG.error("Generic exception: ", ex);
+        log.error("Generic exception: ", ex);
         final String message = "Unexpected problem, please contact support team "
                 + environment.getProperty("email.support")
                 + " with time stamp " + now() + " and short description.";

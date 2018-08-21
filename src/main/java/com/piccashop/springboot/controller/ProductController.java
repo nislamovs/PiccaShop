@@ -4,8 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.piccashop.springboot.model.Product;
 import com.piccashop.springboot.service.ProductService;
 import com.piccashop.springboot.util.CustomErrorType;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
@@ -20,11 +19,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping(value = "/api")
 public class ProductController {
-
-    public static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
     @Autowired
     ProductService productService; //Service which will do all data retrieval/manipulation work
@@ -71,13 +69,13 @@ public class ProductController {
     public ResponseEntity<?> createProduct(@RequestPart("Product") String prod,
                                            @RequestParam(value="image") MultipartFile file) throws IOException {
 
-        logger.info("Creating Product : {}", prod);
+        log.info("Creating Product : {}", prod);
 
         Product product = new ObjectMapper().readValue(prod, Product.class);
         product.setImage(file.getBytes());
 
         if (productService.isProductExist(product)) {
-            logger.error("Unable to create. A Product with name {} already exist", product.getName());
+            log.error("Unable to create. A Product with name {} already exist", product.getName());
             return new ResponseEntity(new CustomErrorType("Unable to create. A Product with name " +
                     product.getName() + " already exist."),HttpStatus.CONFLICT);
         }
@@ -96,19 +94,19 @@ public class ProductController {
         long paramId = product.getId();
 
         if (product.getId() != id) {
-            logger.error("Id from payload not equal to id from path param. {}, {}", paramId, id);
+            log.error("Id from payload not equal to id from path param. {}, {}", paramId, id);
             return new ResponseEntity(new CustomErrorType("Id from payload {" + id + "} not equal to id from path param {" + paramId + "}"),
                     HttpStatus.BAD_REQUEST);
         }
 
         Product currentProduct = productService.getProductById(id);
         if (currentProduct == null) {
-            logger.error("Unable to update. Product with id {} not found.", id);
+            log.error("Unable to update. Product with id {} not found.", id);
             return new ResponseEntity(new CustomErrorType("Unable to update. Product with id " + id + " not found."),
                     HttpStatus.NOT_FOUND);
         }
 
-        logger.info("Updating product with id {}", product.getId());
+        log.info("Updating product with id {}", product.getId());
 
         productService.updateProduct(product);
         return new ResponseEntity<Product>(product, HttpStatus.OK);
@@ -116,11 +114,11 @@ public class ProductController {
 
     @RequestMapping(value = "/product/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteUser(@PathVariable("id") long id) throws IOException {
-        logger.info("Fetching & Deleting product with id {}", id);
+        log.info("Fetching & Deleting product with id {}", id);
 
         Product product = productService.getProductById(id);
         if (product == null) {
-            logger.error("Unable to delete. Product with id {} not found.", id);
+            log.error("Unable to delete. Product with id {} not found.", id);
             return new ResponseEntity(new CustomErrorType("Unable to delete. Product with id " + id + " not found."),
                     HttpStatus.NOT_FOUND);
         }
@@ -130,7 +128,7 @@ public class ProductController {
 
     @RequestMapping(value = "/product", method = RequestMethod.DELETE)
     public ResponseEntity<Product> deleteAllProducts() throws IOException {
-        logger.info("Deleting All Products");
+        log.info("Deleting All Products");
 
         productService.deleteAllProducts();
         return new ResponseEntity<Product>(HttpStatus.NO_CONTENT);

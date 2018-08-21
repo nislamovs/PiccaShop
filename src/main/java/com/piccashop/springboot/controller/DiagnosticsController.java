@@ -1,7 +1,6 @@
 package com.piccashop.springboot.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,12 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.ws.rs.BadRequestException;
 
-
+@Slf4j
 @RestController
 @RequestMapping(value = "/api")
 public class DiagnosticsController {
-
-    public static final Logger logger = LoggerFactory.getLogger(DiagnosticsController.class);
 
     @RequestMapping(value="/health/", method = RequestMethod.GET)
     public ResponseEntity<?> healthcheck() {

@@ -13,6 +13,8 @@ Asynchronous loading (products) / maybe lazy loading                            
 
 Picca constructor data loading via DB + ngRepeat
 Implement createOrder controller, service; make routes
+Create product model                                                                                        DONE
+Create order model                                                                                          DONE
 Implement product editing
 Implement order editing
 Implement order confirmation
@@ -26,11 +28,13 @@ Embedded tomcat usage                                                           
 Generics usage
 Make API for orders
 Make API for products                                                                                       DONE
-Add logging
 Make additional endpoint for products for pagination                                                        DONE
 Update all links on FE for BE
 Add spinner
-Exception mapping
+Exception mapping                                                                                           DONE
+Use Lombok in models                                                                                        DONE
+Use cache (EhCache, memcached...)
+Use spring transactions
 
 Make orders; make to show all orders, with drop down list with order details
 Make normal CSS buttons
@@ -54,28 +58,26 @@ API Integration tests
 Use docker                                                                                                       OK
 Use docker compose
 Create docker setup scripts                                                                                      OK
-Create Docker image deployment script to another host                                                           NOT NEEDED
+Create Docker image deployment script to another host                                                            NOT NEEDED
 Create AWS deployment script
 Docker add possibility to connect ot container via ssh (22 port)
-
 
 create annotation for virtual fields
 
 investigate compressed data transaction for images (to increase performance)
 
 integrate ELK into docker compose script
+Add logging (logback)                                                                                           DONE
 
 ------------------------------------------------------------------
+
+Create integrations for client notification:
 Smart grid
 https://www.js-tutorials.com/javascript-tutorial/best-free-angularjs-grid-table-plugin-examples/
 
+------------------------------------------------------------------
 
 Bugs:
 
 cannot load images to H2 in case of using embedded tomcat                                                       resolved
 cannot map to resources inside docker container                                                                 resolved
-
-
-#commit msg
-    code cleanup
-    added exception handling controller
